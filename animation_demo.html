@@ -2,16 +2,143 @@
 <html>
 <head>
 
+  <title>Prototype - Iel Cunanan</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--Google Icon Fonts-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> <!--Materialize CSS-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Let browser know website is optimized for mobile--> 
   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   <script type="text/javascript" src="js/alphabet.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+
+  	#nav {
+  		margin: 0px auto;
+  		max-width: 100%;
+  	}
+  	#nav ul {
+  		margin: 0px auto;
+  		padding: 0;
+
+  	}
+  	#nav ul li {
+  		list-style: none;
+  	}
+  	#nav ul li a {
+  		text-decoration: none;
+  		font-size: 30px;
+  		float: left;
+  		display: block;
+  	}
+  	#myCanvas {
+  		margin: 0 auto;
+  		max-width: 100%;
+  	}
+  </style>
 
 </head>
 <body>
   
-  <canvas id="myCanvas"> </canvas>
+  <div id="logo">
+    <canvas id="myCanvas" style="border:1px solid #000000;"> </canvas>
+  </div>  
+
+  <div id="nav">
+    <ul>
+      <li><a href="#skill">Skill Set</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About Me</a></li>
+    </ul>
+  </div>
+
+  <div id="skill" class="section-header center-align">
+    <h3>Skillset</h3>
+  </div>
 
   <script type="text/javascript" src="js/bubbles.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/main2.js"></script>
+  <script>
+  	
+  	var dataArray = [20, 40, 70];
+
+  	var canva = d3.select("body")
+  					.append("svg")
+  					.attr("width", 500)
+  					.attr("height", 500);
+
+  	var bars = canva.selectAll("rect")
+  				.data(dataArray)
+  				.enter()
+  					.append("rect")
+  					.attr("height", function(d) { return d; })
+  					.attr("width", 50)
+  					.attr("x", function(d, i) {return i * 100});
+  </script>
+
+  <div class="container">
+    <div class="row">
+      <div id="gallery" class="section-header center-align">
+        <h3>Selected Gallery Feature</h3>
+      </div>
+      <div class="col l4 s12">
+        <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>A simple hand-drawn illustration.</p>
+            </div>
+          </div>
+      </div>
+      <div class="col l4 s12">
+        <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>A small animation that displays various objects according to user input.
+            </div>
+          </div>
+      </div>
+      <div class="col l4 s12">
+        <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>JavaScript-based survey.
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div id="about" class="section-header center-align">
+        <h3>About Me</h3>
+      </div>
+      <div class="col l6 s12">
+        <img src="">
+      </div>
+      <div class="col l6 s12">
+        <p style="padding: 25px;">Lorem ipsum dolor sit amet, aenean ornare pellentesque, molestie tellus vel nunc, vestibulum nunc a fringilla tincidunt, enim sed luctus consequat nec, ac suscipit nulla ut nunc ultrices mi. Neque metus nulla sapien vel. Donec gravida a elit, nonummy proin ipsum, vehicula fringilla aptent interdum ultrices scelerisque laoreet, qui mollis id egestas per litora, dis sed dui lectus donec consectetuer lectus.</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+      <div class="col l6 s12">
+        <p style="padding: 25px;">Lorem ipsum dolor sit amet, aenean ornare pellentesque, molestie tellus vel nunc, vestibulum nunc a fringilla tincidunt, enim sed luctus consequat nec, ac suscipit nulla ut nunc ultrices mi. Neque metus nulla sapien vel. Donec gravida a elit, nonummy proin ipsum, vehicula fringilla aptent interdum ultrices scelerisque laoreet, qui mollis id egestas per litora, dis sed dui lectus donec consectetuer lectus.</p>
+      </div>
+      <div class="col l6 s12">
+        <img src="">
+      </div>
+    </div>
+  </div>
+
 
 </body>
 </html>
